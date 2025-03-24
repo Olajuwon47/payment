@@ -1,3 +1,26 @@
+document.addEventListener("DOMContentLoaded", function () {
+   const paymentMethods = document.querySelectorAll("input[name='paymentMethod']");
+   const cardSection = document.getElementById("card-section");
+   const deliverySection = document.getElementById("delivery-section");
+
+   function showPaymentMethod() {
+       if (document.getElementById("debitCard").checked) {
+           cardSection.style.display = "block";
+           deliverySection.style.display = "none";
+       } else {
+           cardSection.style.display = "none";
+           deliverySection.style.display = "block";
+       }
+   }
+
+   // Attach event listener to radio buttons
+   paymentMethods.forEach((input) => {
+       input.addEventListener("change", showPaymentMethod);
+   });
+
+   // Initialize display on page load
+   showPaymentMethod();
+});
 
 const subtotal = 100.00;
 const taxRate = 0.10;
